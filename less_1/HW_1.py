@@ -57,3 +57,5 @@
 #     day+=1
 #     print(str(day) + " days " + str(n) + " km")
 # print("You need " + str(day) + " days to achieve result")
+
+""""""
