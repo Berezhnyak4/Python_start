@@ -47,15 +47,13 @@
 #     print("Profit is equal cost")
 
 """6 Спортсмен занимается ежедневными пробежками. В первый день его результат составил a километров. Каждый день спортсмен увеличивал результат на 10 % относительно предыдущего. Требуется определить номер дня, на который общий результат спортсмена составить не менее b километров. Программа должна принимать значения параметров a и b и выводить одно натуральное число — номер дня."""
-# n = int(input("Input your first result: "))
-# s = int(input("Input your desired result: "))
-# day = 1
-# print(str(day) + " days " + str(n) + " km")
-# while n<s:
-#     n*=1.1
-#     n=round(n, 2)
-#     day+=1
-#     print(str(day) + " days " + str(n) + " km")
-# print("You need " + str(day) + " days to achieve result")
-
-""""""
+n = int(input("Input your first result: "))
+s = int(input("Input your desired result: "))
+day = 1
+print(f"{day} days {n} km")
+while n<s:
+    n*=1.1
+    n=round(n, 2)
+    day+=1
+    print(f"{day} days {n} km")
+print(f"You need {day} days to achieve result!")
