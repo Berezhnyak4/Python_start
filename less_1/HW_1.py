@@ -15,7 +15,7 @@
 # minut = tm%3600//60
 # sec = tm%60
 #
-# print(f"Время в формате чч:мм:сс   {hour:02} : {minut:02} : {sec:02}.")
+# print(f"Время в формате чч:мм:сс   {hour:02}:{minut:02}:{sec:02}.")
 
 """3 Узнайте у пользователя число n. Найдите сумму чисел n + nn + nnn. Например, пользователь ввёл число 3. Считаем 3 + 33 + 333 = 369."""
 # e = input("Input number: ")
@@ -40,20 +40,20 @@
 #     print("You looser")
 # elif pr>ct:
 #     prof = (pr-ct)/pr*100
-#     print(str(prof) + "% profitability")
+#     print(f"{prof} % profitability")
 #     people = int(input("Input numbers your employees: "))
-#     print("Profit for person: " + str((pr-ct)/people) +" euro")
+#     print(f"Profit for person: {(pr-ct)/people} euro")
 # else:
 #     print("Profit is equal cost")
 
 """6 Спортсмен занимается ежедневными пробежками. В первый день его результат составил a километров. Каждый день спортсмен увеличивал результат на 10 % относительно предыдущего. Требуется определить номер дня, на который общий результат спортсмена составить не менее b километров. Программа должна принимать значения параметров a и b и выводить одно натуральное число — номер дня."""
-n = int(input("Input your first result: "))
-s = int(input("Input your desired result: "))
-day = 1
-print(f"{day} days {n} km")
-while n<s:
-    n*=1.1
-    n=round(n, 2)
-    day+=1
-    print(f"{day} days {n} km")
-print(f"You need {day} days to achieve result!")
+# n = int(input("Input your first result: "))
+# s = int(input("Input your desired result: "))
+# day = 1
+# print(f"{day} days {n} km")
+# while n<s:
+#     n*=1.1
+#     n=round(n, 2)
+#     day+=1
+#     print(f"{day} days {n} km")
+# print(f"You need {day} days to achieve result!")
