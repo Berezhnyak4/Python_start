@@ -13,17 +13,31 @@
 """2. Реализовать функцию, принимающую несколько параметров, описывающих данные пользователя: имя,
  фамилия, год рождения, город проживания, email, телефон. Функция должна принимать параметры как 
  именованные аргументы. Реализовать вывод данных о пользователе одной строкой."""
+# dict_1 = {"имя":None, "фамилия":None, "год рождения":None, "город проживания":None, "email":None, "телефон":None}
+# name = input("Enter name: ")
+# sern = input("Enter sername: ")
+# gr = input("Enter age: ")
+# gp = input("Enter youe city: ")
+# email = input(" Enter email: ")
+# tel = input("Enter telephon number: ")
 # def data(name,sern,gr,gp,email,tel):
-#     return print(f'{name} {sern} {gr} {gp} {email} {tel}}')
+#     dict_1["имя"] = name
+#     dict_1["фамилия"] = sern
+#     dict_1["год рождения"] = gr
+#     dict_1["город проживания"]= gp
+#     dict_1["email"] = email
+#     dict_1["телефон"] = tel
+#     return dict_1
+# print (data(name,sern,gr,gp,email,tel))
 """3. Реализовать функцию my_func(), которая принимает три позиционных аргумента, и возвращает сумму
  наибольших двух аргументов."""
-a = int(input("Enter a: "))
-b = int(input("Enter b: "))
-c = int(input("Enter c: "))
-def my_func(a,b,c):
-    sum = a + b + c - min(a,b,c)
-    return sum
-print(f'Сумма наибольших аргументов {my_func(a,b,c)}')
+# a = int(input("Enter a: "))
+# b = int(input("Enter b: "))
+# c = int(input("Enter c: "))
+# def my_func(a,b,c):
+#     sum = a + b + c - min(a,b,c)
+#     return sum
+# print(f'Сумма наибольших аргументов {my_func(a,b,c)}')
 """4. Программа принимает действительное положительное число x и целое отрицательное число y. 
 Необходимо выполнить возведение числа x в степень y. Задание необходимо реализовать в виде функции 
 my_func(x, y). При решении задания необходимо обойтись без встроенной функции возведения числа в
