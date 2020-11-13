@@ -59,3 +59,6 @@
 # print("You need " + str(day) + " days to achieve result")
 
 #branch
+
+a =min(1,2,3,4,5)
+print(a)
