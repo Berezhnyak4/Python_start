@@ -93,6 +93,7 @@ def int_func(a):
     result = a.title()
     return result
 
+
 print(int_func("sdbdfb"))
 y = input("Enter word: ").split()
 z = map(int_func, y)
