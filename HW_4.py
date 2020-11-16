@@ -3,13 +3,16 @@
  Для выполнения расчета для конкретных значений необходимо запускать скрипт с параметрами.
 """
 from sys import argv
-raschet, hour, doll_for_hour,premia = argv
-zp = lambda hour,doll_for_hour,premia:hour*doll_for_hour+premia
-print("Имя скрипта: ",raschet)
+hour, doll_for_hour, premia = argv[1:]
+def zp(hour,doll_for_hour,premia):
+    return hour * doll_for_hour + premia
+
+
 print("Сколько часов отработал: ", hour)
 print("Сколько получает за час: ", doll_for_hour)
 print("Премия: ", premia)
-print("Profit: ", zp)
+print("Profit: ", zp(int(hour),int(doll_for_hour),int(premia)))
+
 """2. Представлен список чисел. Необходимо вывести элементы исходного списка, значения которых
  больше предыдущего элемента.
 Подсказка: элементы, удовлетворяющие условию, оформить в виде списка. Для формирования списка 
