@@ -2,16 +2,15 @@
 сотрудника. В расчете необходимо использовать формулу: (выработка в часах * ставка в час) + премия.
  Для выполнения расчета для конкретных значений необходимо запускать скрипт с параметрами.
 """
-from sys import argv
-hour, doll_for_hour, premia = argv[1:]
-def zp(hour,doll_for_hour,premia):
-    return hour * doll_for_hour + premia
-
-
-print("Сколько часов отработал: ", hour)
-print("Сколько получает за час: ", doll_for_hour)
-print("Премия: ", premia)
-print("Profit: ", zp(int(hour),int(doll_for_hour),int(premia)))
+# from sys import argv
+# hour, doll_for_hour, premia = argv[1:]
+# def zp(hour,doll_for_hour,premia):
+#     return hour * doll_for_hour + premia
+#
+# print("Сколько часов отработал: ", hour)
+# print("Сколько получает за час: ", doll_for_hour)
+# print("Премия: ", premia)
+# print("Profit: ", zp(int(hour),int(doll_for_hour),int(premia)))
 
 """2. Представлен список чисел. Необходимо вывести элементы исходного списка, значения которых
  больше предыдущего элемента.
@@ -20,12 +19,26 @@ print("Profit: ", zp(int(hour),int(doll_for_hour),int(premia)))
 Пример исходного списка: [300, 2, 12, 44, 1, 1, 4, 10, 7, 1, 78, 123, 55].
 Результат: [12, 44, 4, 10, 78, 123].
 """
-
+# ls =[]
+# from random import randint
+# ls = [randint(1,30) for x in range(1,30)]
+# print (ls)
+# i = 1
+# ba = []
+# while i < len(ls):
+#     if ls[i] > ls[i-1]:
+#         ba.append(ls[i])
+#         i += 1
+#     else:
+#         i += 1
+# print(ba)
 """3. Для чисел в пределах от 20 до 240 найти числа, кратные 20 или 21. Необходимо решить
  задание в одну строку.
 Подсказка: использовать функцию range() и генератор.
 """
 
+ra = [x for x in range(20, 240) if x % 20 == 0 or x % 21 == 0]
+print(ra)
 """4. Представлен список чисел. Определить элементы списка, не имеющие повторений. 
 Сформировать итоговый массив чисел, соответствующих требованию. Элементы вывести в порядке 
 их следования в исходном списке. Для выполнения задания обязательно использовать генератор.
