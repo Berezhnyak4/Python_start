@@ -2,15 +2,15 @@
 построчно данные, вводимые пользователем. Об окончании ввода данных
 свидетельствует пустая строка."""
 
-# with open("HW_5.txt", "w",encoding="utf-8") as hw_obj:
-#     while True:
-#         content = input("Enter text: ")
-#         print(content)
-#         if content != "":
-#             hw_obj.write(f"{content}\n")
-#         else:
-#             break
-# print(hw_obj)
+with open("HW_5_6.txt", "w",encoding="utf-8") as hw_obj:
+    while True:
+        content = input("Enter text: ")
+        print(content)
+        if content != "":
+            hw_obj.write(f"{content}\n")
+        else:
+            break
+print(hw_obj)
 """2. Создать текстовый файл (не программно), сохранить в нем несколько
  строк, выполнить подсчет количества строк, количества слов в каждой строке."""
 # with open('HW_5_2.txt',"r") as hw2_obj:
@@ -43,13 +43,26 @@ Four — 4
 Необходимо написать программу, открывающую файл на чтение и считывающую построчно данные.
  При этом английские числительные должны заменяться на русские. Новый блок строк должен записываться
   в новый текстовый файл."""
-with open('HW_5_4.txt','r') as hw4:
-    for string in hw4:
-        name, num = string.split('-')
-        print(name)
+# n_dict={'One':'Один', 'Two':'Два', 'Three':'Три', 'Four':'Четыре'}
+# with open('HW_5_4.txt', 'r', encoding='utf-8') as hw4, open('HW_5_4a.txt', 'w', encoding='utf-8') as hw4a:
+#     for string in hw4:
+#         new_string = string.split(' - ')
+#         new_string[0] = n_dict.get(new_string[0])
+#         hw4a.write(' - '.join(new_string))
+
 """5. Создать (программно) текстовый файл, записать в него программно набор чисел, разделенных 
 пробелами. Программа должна подсчитывать сумму чисел в файле и выводить ее на экран."""
-
+# with open('HW_5_5.txt', 'a+', encoding='utf-8') as hw5:
+#     hw5.write(input("Введите числа через пробел: "))
+#     hw5.tell() #Показывает где находиться каретка
+#     hw5.seek(0) #Перенос каретки в начало файла
+#     for line in hw5:
+#         new_s = line.split()
+#     sum=0
+#     for x in new_s:
+#         sum+=int(x)
+#     hw5.write(f' Сумма чисел: {sum} \n')
+# print(sum)
 """6. Необходимо создать (не программно) текстовый файл, где каждая строка описывает учебный предмет
  и наличие лекционных, практических и лабораторных занятий по этому предмету и их количество. 
  Важно, чтобы для каждого предмета не обязательно были все типы занятий. Сформировать словарь, 
