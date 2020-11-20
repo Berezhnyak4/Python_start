@@ -2,38 +2,38 @@
 построчно данные, вводимые пользователем. Об окончании ввода данных
 свидетельствует пустая строка."""
 
-# with open("HW_5_6.txt", "a",encoding="utf-8") as hw_obj:
-#     while True:
-#         content = input("Enter text: ")
-#         print(content)
-#         if content != "":
-#             hw_obj.write(f"{content}\n")
-#         else:
-#             break
-# print(hw_obj)
+with open("HW_5_7.txt", "a",encoding="utf-8") as hw_obj:
+    while True:
+        content = input("Enter text: ")
+        print(content)
+        if content != "":
+            hw_obj.write(f"{content}\n")
+        else:
+            break
+print(hw_obj)
 """2. Создать текстовый файл (не программно), сохранить в нем несколько
  строк, выполнить подсчет количества строк, количества слов в каждой строке."""
-# with open('HW_5_2.txt',"r") as hw2_obj:
-#     i=0
-#     for i, stroka in enumerate(hw2_obj, 1):
-#         word = stroka.split()
-#         print(f'Номер строки: {i} колличество слов в строке {len(word)}')
-#
-# print(f'Всего строк: {i}')
+with open('HW_5_2.txt',"r") as hw2_obj:
+    i=0
+    for i, stroka in enumerate(hw2_obj, 1):
+        word = stroka.split()
+        print(f'Номер строки: {i} колличество слов в строке {len(word)}')
+
+print(f'Всего строк: {i}')
 
 """3. Создать текстовый файл (не программно), построчно записать фамилии сотрудников и величину 
 их окладов. Определить, кто из сотрудников имеет оклад менее 20 тыс., вывести фамилии этих 
 сотрудников. Выполнить подсчет средней величины дохода сотрудников."""
-# with open('HW_5_3.txt', 'r') as hw3:
-#     sum=0
-#     i=0
-#     for string in hw3:
-#         name, prof = string.split()
-#         sum+=int(prof)
-#         i+=1
-#         if int(prof)<20000:
-#             print(name)
-# print(f'Средняя зп: {sum/i}')
+with open('HW_5_3.txt', 'r') as hw3:
+    sum=0
+    i=0
+    for string in hw3:
+        name, prof = string.split()
+        sum+=int(prof)
+        i+=1
+        if int(prof)<20000:
+            print(name)
+print(f'Средняя зп: {sum/i}')
 
 """4. Создать (не программно) текстовый файл со следующим содержимым:
 One — 1
@@ -43,25 +43,25 @@ Four — 4
 Необходимо написать программу, открывающую файл на чтение и считывающую построчно данные.
  При этом английские числительные должны заменяться на русские. Новый блок строк должен записываться
   в новый текстовый файл."""
-# n_dict={'One':'Один', 'Two':'Два', 'Three':'Три', 'Four':'Четыре'}
-# with open('HW_5_4.txt', 'r', encoding='utf-8') as hw4, open('HW_5_4a.txt', 'w', encoding='utf-8') as hw4a:
-#     for string in hw4:
-#         new_string = string.split(' - ')
-#         new_string[0] = n_dict.get(new_string[0])
-#         hw4a.write(' - '.join(new_string))
+n_dict={'One':'Один', 'Two':'Два', 'Three':'Три', 'Four':'Четыре'}
+with open('HW_5_4.txt', 'r', encoding='utf-8') as hw4, open('HW_5_4a.txt', 'w', encoding='utf-8') as hw4a:
+    for string in hw4:
+        new_string = string.split(' - ')
+        new_string[0] = n_dict.get(new_string[0])
+        hw4a.write(' - '.join(new_string))
 
 """5. Создать (программно) текстовый файл, записать в него программно набор чисел, разделенных 
 пробелами. Программа должна подсчитывать сумму чисел в файле и выводить ее на экран."""
-# with open('HW_5_5.txt', 'a+', encoding='utf-8') as hw5:
-#     hw5.write(input("Введите числа через пробел: "))
-#     hw5.tell() #Показывает где находиться каретка
-#     hw5.seek(0) #Перенос каретки в начало файла
-#     for line in hw5:
-#         new_s = line.split()
-#     sum=0
-#     for x in new_s:
-#         sum+=int(x)
-#     hw5.write(f' Сумма чисел: {sum} \n')
+with open('HW_5_5.txt', 'a+', encoding='utf-8') as hw5:
+    hw5.write(input("Введите числа через пробел: "))
+    hw5.tell() #Показывает где находиться каретка
+    hw5.seek(0) #Перенос каретки в начало файла
+    for line in hw5:
+        new_s = line.split()
+    sum=0
+    for x in new_s:
+        sum+=int(x)
+    hw5.write(f' Сумма чисел: {sum} \n')
 # print(sum)
 """6. Необходимо создать (не программно) текстовый файл, где каждая строка описывает учебный предмет
  и наличие лекционных, практических и лабораторных занятий по этому предмету и их количество. 
@@ -97,3 +97,23 @@ print(pre_dict)
 [{"firm_1": 5000, "firm_2": 3000, "firm_3": 1000}, {"average_profit": 2000}]
 
 Подсказка: использовать менеджеры контекста."""
+import json
+seven_dict = {}
+n = 0
+summa = 0
+with open('HW_5_7.txt', 'r', encoding='utf-8') as hw7:
+    for line in hw7:
+        firma, forma, cash, cost = line.split()
+        profit = (int(cash) - int(cost))
+        seven_dict[firma] = profit
+        if profit > 0:
+            summa += profit
+            n += 1
+if n > 0:
+    average_profit = summa / n
+else:
+    average_profit = 0
+result = [seven_dict, {'average_profit': average_profit}]
+print(result)
+with open("my_file.json", "w") as w_f:
+    json.dump(result, w_f)
