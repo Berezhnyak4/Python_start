@@ -2,15 +2,15 @@
 построчно данные, вводимые пользователем. Об окончании ввода данных
 свидетельствует пустая строка."""
 
-with open("HW_5_6.txt", "w",encoding="utf-8") as hw_obj:
-    while True:
-        content = input("Enter text: ")
-        print(content)
-        if content != "":
-            hw_obj.write(f"{content}\n")
-        else:
-            break
-print(hw_obj)
+# with open("HW_5_6.txt", "a",encoding="utf-8") as hw_obj:
+#     while True:
+#         content = input("Enter text: ")
+#         print(content)
+#         if content != "":
+#             hw_obj.write(f"{content}\n")
+#         else:
+#             break
+# print(hw_obj)
 """2. Создать текстовый файл (не программно), сохранить в нем несколько
  строк, выполнить подсчет количества строк, количества слов в каждой строке."""
 # with open('HW_5_2.txt',"r") as hw2_obj:
@@ -74,6 +74,15 @@ Four — 4
 
 Пример словаря:
 {“Информатика”: 170, “Физика”: 40, “Физкультура”: 30}"""
+pre_dict = {}
+with open('HW_5_6.txt', 'r', encoding='utf-8') as hw6:
+    for line in hw6:
+        new_l =line.split(':')
+        stroka = ''.join(new_l[1])
+        summa=sum(int(x)for a in stroka.split() for x in a.split('(') if x.isdigit())
+        pre_dict[new_l[0]] = str(summa)
+print(pre_dict)
+
 
 """7. Создать (не программно) текстовый файл, в котором каждая строка должна содержать данные 
 о фирме: название, форма собственности, выручка, издержки.
