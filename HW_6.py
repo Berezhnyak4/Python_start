@@ -65,24 +65,24 @@
   полного имени сотрудника (get_full_name) и дохода с учетом премии (get_total_income). Проверить 
   работу примера на реальных данных (создать экземпляры класса Position, передать данные, проверить
    значения атрибутов, вызвать методы экземпляров)."""
-class Worker():
-    pro_dict={"wage": 500, "bonus": 100}
-    def __init__(self, name, surname, position, wage, bonus):
-        self.name = name
-        self.surname = surname
-        self.position = position
-        self._income = {"wage": wage, "bonus": bonus}
-class Position(Worker):
-    def __init__(self, name, surname, position, wage, bonus):
-        super().__init__(name, surname, position, wage, bonus)
-    def get_full_name(self):
-        return f'Full name: {self.name} {self.surname}'
-    def get_total_income(self):
-        return f'Profit: {sum(self._income.values())}'
-I = Position("Igor", "Spchkin", "pro", 500, 200)
-print(I.position)
-print(I.get_full_name())
-print(I.get_total_income())
+# class Worker():
+#     pro_dict={"wage": 500, "bonus": 100}
+#     def __init__(self, name, surname, position, wage, bonus):
+#         self.name = name
+#         self.surname = surname
+#         self.position = position
+#         self._income = {"wage": wage, "bonus": bonus}
+# class Position(Worker):
+#     def __init__(self, name, surname, position, wage, bonus):
+#         super().__init__(name, surname, position, wage, bonus)
+#     def get_full_name(self):
+#         return f'Full name: {self.name} {self.surname}'
+#     def get_total_income(self):
+#         return f'Profit: {sum(self._income.values())}'
+# I = Position("Igor", "Spchkin", "pro", 500, 200)
+# print(I.position)
+# print(I.get_full_name())
+# print(I.get_total_income())
 """4. Реализуйте базовый класс Car. У данного класса должны быть следующие атрибуты: speed, color,
  name, is_police (булево). А также методы: go, stop, turn(direction), которые должны сообщать, что
   машина поехала, остановилась, повернула (куда). Опишите несколько дочерних классов: TownCar, 
@@ -92,7 +92,68 @@ print(I.get_total_income())
    скорости.
 Создайте экземпляры классов, передайте значения атрибутов. Выполните доступ к атрибутам,
  выведите результат. Выполните вызов методов и также покажите результат."""
-
+class Car:
+    def __init__(self, speed, color, name, is_police):
+        self.speed = speed
+        self.color = color
+        self.name = name
+        self.is_police = is_police
+    def go(self):
+        return f'Машина {self.name} поехала со скоростью {self.speed} км/ч'
+    def stop(self):
+        return f'Машина {self.name} остановилась'
+    def turn_r(self):
+        return f'Машина {self.name} повернула вправо'
+    def turn_l(self):
+        return f'Машина {self.name} повернула влево'
+    def show_speed(self):
+        return f'Машина {self.name} едет со скоростью {self.speed} км/ч'
+class TownCar(Car):
+    def __init__(self, speed, color, name, is_police):
+        super().__init__(speed, color, name, is_police)
+    def show_speed(self):
+        if self.speed > 40:
+            return f'Скорость выше 40 км/ч'
+        else:
+            return f'Машина {self.name} едет со скоростью {self.speed} км/ч'
+class WorkCar(Car):
+    def __init__(self, speed, color, name, is_police):
+        super().__init__(speed, color, name, is_police)
+    def show_speed(self):
+        if self.speed > 60:
+            return f'Скорость выше 60 км/ч'
+        else:
+            return f'Машина {self.name} едет со скоростью {self.speed} км/ч'
+class PoliceCar(Car):
+    def __init__(self, speed, color, name, is_police):
+        super().__init__(speed, color, name, is_police)
+    def police(self):
+        if self.is_police:
+            return f'Внимание едет {self.name} полицейская машина!'
+        else:
+            return (f'Машина {self.name} не полицейская')
+class SportCar(Car):
+    def __init__(self, speed, color, name, is_police):
+        super().__init__(speed, color, name, is_police)
+    def show_speed(self):
+        if self.speed > 110:
+            return f'Скорость выше 110 км/ч'
+        else:
+            return f'Машина {self.name} едет со скоростью {self.speed} км/ч'
+meren = SportCar(140, 'Белый', 'Новый мерен', False)
+oka = TownCar(30, 'Белая', 'ока', False)
+lada = WorkCar(50, 'Баклажан', 'лада-седан', True)
+ford = PoliceCar(110, 'ментовской',  'форд', True)
+print(lada.turn_l())
+print(f'Когда {oka.turn_r()}, тогда {meren.stop()}')
+print(f'{lada.go()}')
+print(f'{lada.name} это {lada.color}')
+print(f' {meren.name} полицейская тачка? {meren.is_police}')
+print(f'А {lada.name}  полицейская тачка? {lada.is_police}')
+print(meren.show_speed())
+print(oka.show_speed())
+print(ford.police())
+print(ford.show_speed())
 """5. Реализовать класс Stationery (канцелярская принадлежность). Определить в нем атрибут
  title (название) и метод draw (отрисовка). Метод выводит сообщение “Запуск отрисовки.” 
  Создать три дочерних класса Pen (ручка), Pencil (карандаш), Handle (маркер). В каждом из
