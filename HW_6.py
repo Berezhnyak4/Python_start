@@ -65,7 +65,24 @@
   полного имени сотрудника (get_full_name) и дохода с учетом премии (get_total_income). Проверить 
   работу примера на реальных данных (создать экземпляры класса Position, передать данные, проверить
    значения атрибутов, вызвать методы экземпляров)."""
-
+class Worker():
+    pro_dict={"wage": 500, "bonus": 100}
+    def __init__(self, name, surname, position, wage, bonus):
+        self.name = name
+        self.surname = surname
+        self.position = position
+        self._income = {"wage": wage, "bonus": bonus}
+class Position(Worker):
+    def __init__(self, name, surname, position, wage, bonus):
+        super().__init__(name, surname, position, wage, bonus)
+    def get_full_name(self):
+        return f'Full name: {self.name} {self.surname}'
+    def get_total_income(self):
+        return f'Profit: {sum(self._income.values())}'
+I = Position("Igor", "Spchkin", "pro", 500, 200)
+print(I.position)
+print(I.get_full_name())
+print(I.get_total_income())
 """4. Реализуйте базовый класс Car. У данного класса должны быть следующие атрибуты: speed, color,
  name, is_police (булево). А также методы: go, stop, turn(direction), которые должны сообщать, что
   машина поехала, остановилась, повернула (куда). Опишите несколько дочерних классов: TownCar, 
