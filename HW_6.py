@@ -6,13 +6,57 @@
   зеленый). Проверить работу примера, создав экземпляр и вызвав описанный метод.
 Задачу можно усложнить, реализовав проверку порядка режимов, и при его нарушении выводить
 соответствующее сообщение и завершать скрипт."""
+#OpenDataScience
+
+# from time import sleep
+#
+#
+# class TraffikLight:
+#     __color=["Красный", "Желтый", "Зеленый"]
+#     __time=[7,2,3] #добавил второй атрибут чтобы не указывать в ручную время
+#     def runnind(self):
+#         i=0
+#         while i < 3:
+#             print(f'Горит {TraffikLight.__color[i]}, {TraffikLight.__time[i]} секунд')
+#             if i == 0:
+#                 sleep(TraffikLight.__time[i])
+#             elif i == 1:
+#                 sleep(TraffikLight.__time[i])
+#             elif i == 2:
+#                 sleep(TraffikLight.__time[i])
+#                 i-=3
+#             i+=1
+# TraffikLight=TraffikLight()
+# TraffikLight.runnind()
+
+
+
+
+
+
+
 
 """2. Реализовать класс Road (дорога), в котором определить атрибуты: length (длина), width (ширина).
  Значения данных атрибутов должны передаваться при создании экземпляра класса. Атрибуты сделать 
  защищенными. Определить метод расчета массы асфальта, необходимого для покрытия всего дорожного 
  полотна. Использовать формулу: длина * ширина * масса асфальта для покрытия одного кв метра дороги
-  асфальтом, толщиной в 1 см * чи сло см толщины полотна. Проверить работу метода.
+  асфальтом, толщиной в 1 см * число см толщины полотна. Проверить работу метода.
 Например: 20м * 5000м * 25кг * 5см = 12500 т"""
+class RoadtotheDreem():
+    def __init__(self, leght, width):
+        self.leght = leght
+        self.wigth = width
+
+    def mass(self):
+        return f'{self.leght}m * {self.wigth}m * {self.volume}кг * {self.c}см = {self.leght * self.wigth * self.volume * self.c/1000} т'
+
+class MassCount(RoadtotheDreem):
+    def __init__(self, _length, _width, volume, c):
+        super().__init__(_length, _width)
+        self.volume = volume
+        self.c = c
+r = MassCount(20, 5000, 25, 5)
+print(r.mass())
 
 """3. Реализовать базовый класс Worker (работник), в котором определить атрибуты: name, surname,
  position (должность), income (доход). Последний атрибут должен быть защищенным и ссылаться на 
